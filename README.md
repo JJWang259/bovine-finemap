@@ -226,7 +226,7 @@ RM scores are available at [Zenodo](https://zenodo.org/10.5281/zenodo.12216791).
 
 ---
 
-**Step 4: Functional enrichment with GEMRICH**
+### Step 4: Functional enrichment with GEMRICH
 
 GEMRICH applies an MLE-based model to estimate enrichment of fine-mapped
 large-effect signals across functional annotation categories.
