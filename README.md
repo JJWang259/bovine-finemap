@@ -31,44 +31,34 @@ This repository implements a three-step pipeline for identifying and functionall
 
 ## Repository Structure
 
-```
 bovine-finemap/
-├── scripts/
-│   ├── gwas/                  # GWAS using SLEMM-GWA
-│   ├── finemapping/           # Bayesian fine-mapping (BFMAP / SuSiE-adj)
-│   ├── enrichment/            # OCR enrichment (GEMRICH) and regulatory magnitude
-│   └── utils/                 # Helper scripts and visualization
-├── data/
-│   └── example/               # Small example input files
-├── results/
-│   ├── gwas/
-│   ├── finemapping/
-│   └── enrichment/
-└── docs/
-    └── workflow.md            # Step-by-step workflow description
+├── README.md
+└── scripts/
+    ├── 01a_lmm_fit.sh                     # Step 1a: LMM model fitting (SLEMM)
+    ├── 01b_gwas_association.sh            # Step 1b: GWAS (SLEMM-GWA)
+    ├── 02a_identify_candidate_regions.R   # Step 2a: Define candidate regions
+    ├── 02b_construct_bfmap_grm.sh         # Step 2b: Construct BFMAP GRM
+    ├── 02c_estimate_heritability.sh       # Step 2c: Estimate heritability with BFMAP
+    ├── 02d_finemapping_bfmap.sh           # Step 2d: BFMAP forward selection fine-mapping
+    ├── 02e_summarise_finemapping.R        # Step 2e: Aggregate fine-mapping results
+    ├── 03_susie_adj.R                     # Step 3: SuSiE-adj with optional RM prior weights
+    └── 04_gemrich_enrichment.R            # Step 4: OCR enrichment analysis
 ```
 
 ---
 
 ## Dependencies
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| [SLEMM](https://github.com/jiang18/slemm) | latest | GWAS with reliability-weighted model |
-| [BFMAP](https://github.com/jiang18/bfmap) | latest | Bayesian fine-mapping |
-| [SuSiE-adj](https://github.com/jiang18/bfmap) | latest | LMM-adjusted fine-mapping |
-| [GEMRICH](https://github.com/jiang18/gemrich) | latest | Enrichment of fine-mapping signals in annotations |
-| R | ≥ 4.2 | Post-processing, visualization |
-| Python | ≥ 3.9 | Utility scripts |
-| PLINK2 | ≥ 2.0 | Genotype processing |
-| BCFtools | ≥ 1.17 | VCF manipulation |
 
-Install R packages:
-```r
-install.packages(c("data.table", "ggplot2", "dplyr", "tidyr", "patchwork", "susieR"))
-if (!requireNamespace("BiocManager")) install.packages("BiocManager")
-BiocManager::install(c("GenomicRanges", "rtracklayer"))
-```
+### Software
+
+| Tool | Version | Purpose | Link |
+|------|---------|---------|------|
+| SLEMM | any | GWAS | [jiang18/slemm](https://github.com/jiang18/slemm) |
+| BFMAP | ≥ 0.65 | Bayesian fine-mapping | [jiang18/bfmap](https://github.com/jiang18/bfmap) |
+| GEMRICH | any | Large-effect enrichment analysis | [jiang18/gemrich](https://github.com/jiang18/gemrich) |
+| PLINK | any | Genotype data processing | [cog-genomics.org/plink](https://www.cog-genomics.org/plink/) |
+| R | ≥ 4.1 | Data processing and scripting | [r-project.org](https://www.r-project.org) |
 
 ---
 
@@ -168,7 +158,7 @@ If you use these scripts, please cite:
 ```
 Guan D*, Bruscadin JJ*, Yang W*, Prowse-Wilkins C*, Wang J*, et al. (2025).
 An integrated multi-tissue atlas of epigenomic landscapes and regulatory
-elements in the bovine genome. Nature Genetics (in revision).
+elements in the bovine genome. Nature Genetics *(under review)*
 
 Wang J, Gao Y, Toghiani S, Cole JB, Maltecca C, Ma L, Jiang J. (2025).
 Genome-wide association study and fine-mapping using imputed sequences to
