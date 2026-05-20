@@ -71,15 +71,6 @@ devtools::install_github("jiang18/gemrich")
 
 ## Input Data
 
-| Data | Source | Notes |
-|------|--------|-------|
-| Genotypes (50,309 bulls) | Not publicly released | Contact authors |
-| Phenotypes (30 traits, DRP) | Not publicly released | Contact authors |
-| Fine-mapping summary stats | [Dryad](https://datadryad.org/dataset/doi:10.5061/dryad.vmcvdnd3q) | PCIP for all 30 traits |
-| Tissue-specific OCR BEDs | [Zenodo](https://zenodo.org/10.5281/zenodo.12216791) | 47 tissues |
-| Regulatory magnitude scores | [Zenodo](https://zenodo.org/10.5281/zenodo.12216791) | 28M SNPs |
-| gkm-SVM weights | [Zenodo](https://zenodo.org/10.5281/zenodo.12216791) | 206 tissue-mark contexts |
-| Reference genome (ARS-UCD1.2) | [Ensembl v105](https://ensembl.org) | — |
 
 ### Required files
 
@@ -91,6 +82,15 @@ devtools::install_github("jiang18/gemrich")
 | `snp.info.csv` | CSV | SNP name list for SLEMM variance component estimation and BFMAP GRM construction |
 | `annotation.bed` | BED | Functional annotations for GEMRICH (columns: chr, start, end, category) |
 | `snplist.csv` | CSV | SNP universe for GEMRICH background proportion calculation (columns: chr, pos) |
+
+### Public Data Resources
+
+| Data | Source | Notes |
+|------|--------|-------|
+| Fine-mapping summary stats | [Dryad](https://datadryad.org/dataset/doi:10.5061/dryad.vmcvdnd3q) | PCIP for all 30 traits |
+| Tissue-specific OCR BEDs | [Zenodo](https://zenodo.org/10.5281/zenodo.12216791) | 47 tissues |
+| Regulatory magnitude scores | [Zenodo](https://zenodo.org/10.5281/zenodo.12216791) | 28M SNPs |
+| Reference genome (ARS-UCD1.2) | [Ensembl v105](https://ensembl.org) | — |
 
 ### Phenotype file format
 ```
