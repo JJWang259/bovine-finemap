@@ -31,6 +31,7 @@ This repository implements a three-step pipeline for identifying and functionall
 
 ## Repository Structure
 
+```
 bovine-finemap/
 ├── README.md
 └── scripts/
